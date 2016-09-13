@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+'use strict';
+
+const ArgumentParser = require("argparse").ArgumentParser;
+
+const parser = new ArgumentParser({
+  description: "scan dir, parse iw, push to fluentd"
+});
+
+parser.addArgument("dir", { help: "target directory" });
+
+parser.addArgument("--prefix", { help: "e.g. iw." });
+parser.addArgument("--name", { help: "default: os.hostname()" });
+parser.addArgument("--suffix");
+
+parser.addArgument(["--verbose", "-v"], {
+  action: "storeTrue"
+});
+
+
+let args = parser.parseArgs();
+
+require("../main")({
+  targetDir: args.dir,
+  prefix:    args.prefix,
+  name:      args.name,
+  suffix:    args.suffix
+})
+.then(res => {
+  if(args.verbose){
+    console.log(res);
+  }
+
+  console.log(`pushed ${res.files.length} files`);
+})
+.catch(e => {
+  console.error(e.stack);
+  process.exit(1);
+});

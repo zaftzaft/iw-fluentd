@@ -1,0 +1,26 @@
+{
+  "name": "iw-fluentd",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.js",
+  "bin": {
+    "iw-log-push": "bin/iw-log-push"
+  },
+  "dependencies": {
+    "argparse": "1.0.7",
+    "bluebird": "3.4.6",
+    "co": "4.6.0",
+    "got": "6.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "files": [
+    "main.js",
+    "bin",
+    "lib"
+  ]
+}
