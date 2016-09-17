@@ -94,6 +94,8 @@ function main(options){
 
         yield logPush({
           data: parsed[i],
+          host: options.host,
+          port: options.port,
           tag: tag
         })
         .then(() => {

@@ -9,6 +9,9 @@ const parser = new ArgumentParser({
 
 parser.addArgument("dir", { help: "target directory" });
 
+parser.addArgument("--host", { help: "fluentd host" });
+parser.addArgument("--port", { help: "fluentd port" });
+
 parser.addArgument("--prefix", { help: "e.g. iw." });
 parser.addArgument("--name", { help: "default: os.hostname()" });
 parser.addArgument("--suffix");
